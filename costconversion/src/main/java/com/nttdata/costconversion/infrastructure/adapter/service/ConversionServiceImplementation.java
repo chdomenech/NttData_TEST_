@@ -138,8 +138,8 @@ public class ConversionServiceImplementation implements ConversionService {
 		return switch (model) {
 		case "ACCENT" -> URL_WS_ACCENT;
 		case "TUCSON" -> URL_WS_TUCSON;
-		case "SANTE_FE" -> URL_WS_SANTE_FE;
-		case "GRAND i10" -> URL_WS_GRAND_I10;
+		case "SANTA FE" -> URL_WS_SANTE_FE;
+		case "GRAND I10" -> URL_WS_GRAND_I10;
 		default -> throw new Exception(ERROR_MODEL_NOT_FOUND);
 		};
 	}
