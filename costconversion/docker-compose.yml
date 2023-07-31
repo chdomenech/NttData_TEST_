@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:  
+ java_app:
+    container_name: java_spring_boot
+    image: costconversion-java_app:1.0.0
+    build: .
+    ports:
+      - 8080:8080
+    environment:
+      - DATABASE_URL=jdbc:postgresql://java_db_postgress:5432/conversion
+      - DATABASE_USERNAME=root_bd_nttdata
+      - DATABASE_PASSWORD=Quito123.
+    depends_on:
+      - java_db_postgress  
+ java_db_postgress:
+    build:
+        dockerfile: postgres.dockerfile
+    container_name: java_db_postgress
+    image: postgres:12
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: root_bd_nttdata
+      POSTGRES_PASSWORD: Quito123.
+      POSTGRES_DB: conversion
