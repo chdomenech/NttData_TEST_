@@ -1,4 +1,4 @@
-package com.nttdata.costconversion.application.input;
+package com.nttdata.costconversion.application.input.conversion;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class InputVO {
-	private  ConvertionInputVO data;
+public class InputConversionVO {
+	private  ConvertionVO data;
 }

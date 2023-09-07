@@ -1,5 +1,6 @@
-package com.nttdata.costconversion.application.input;
+package com.nttdata.costconversion.application.input.report;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,11 +10,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ConvertionInputVO {		
-	private String model;
-	private String cryptocurrency;
-	private String convertionId;
-	private String fullName;
-	private String version;
+public class ReportVO {
+
+	@NotNull
 	private String date;
+	@NotNull
+	private String model;
+	@NotNull
+	private String cryptocurrency;
 }

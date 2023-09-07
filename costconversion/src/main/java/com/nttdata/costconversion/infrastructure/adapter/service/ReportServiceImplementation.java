@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.nttdata.costconversion.application.input.InputVO;
+import com.nttdata.costconversion.application.input.report.InputReportVO;
 import com.nttdata.costconversion.application.output.ReportOutputVO;
 import com.nttdata.costconversion.domain.model.PurchasesEntity;
 import com.nttdata.costconversion.domain.repository.PurchaseRepository;
@@ -26,7 +26,7 @@ public class ReportServiceImplementation implements ReportService{
 	Float totalPriceUsd;
 	
 	@Override
-	public List<ReportOutputVO> generateReport(InputVO data) throws Exception {
+	public List<ReportOutputVO> generateReport(InputReportVO data) throws Exception {
 	
 		
 		Date dateMin = CoreUtils.convertDateMinValue(data.getData().getDate());		
@@ -59,7 +59,8 @@ public class ReportServiceImplementation implements ReportService{
 		reportOutputVO.setCryptocurrencyAmount(totalCryptocurrency);
 		report = new ArrayList<>();
 		report.add(reportOutputVO);
-		return report;
+		return report;		
+	
 	}
 	
 

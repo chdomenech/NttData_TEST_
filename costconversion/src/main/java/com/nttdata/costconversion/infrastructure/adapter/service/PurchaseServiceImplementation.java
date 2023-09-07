@@ -7,7 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.nttdata.costconversion.application.input.InputVO;
+import com.nttdata.costconversion.application.input.purchase.InputPurchaseVO;
 import com.nttdata.costconversion.application.output.PurchaseOutputVO;
 import com.nttdata.costconversion.domain.model.ConversionEntity;
 import com.nttdata.costconversion.domain.model.PurchasesEntity;
@@ -29,7 +29,7 @@ public class PurchaseServiceImplementation implements PurchaseService {
 	private ConversionRepository conversionRepository;
 
 	@Override
-	public PurchaseOutputVO savePurchase(InputVO data) throws Exception {
+	public PurchaseOutputVO savePurchase(InputPurchaseVO data) throws Exception {
 		ConversionEntity conversion = null;
 		VersionsEntity versionEntity = null;
 		PurchasesEntity purchaseEntity = null;
@@ -53,8 +53,6 @@ public class PurchaseServiceImplementation implements PurchaseService {
 		purchaseEntity.setDate(new Date());		
 		purchaseEntity.setCryptoCurrency(conversion.getCryptoCurrency());
 		purchaseEntity.setModel(conversion.getModel());
-		/*purchaseEntity.setPriceUsd(versionEntity.getPriceUsd());
-		purchaseEntity.setPriceCryptocurrency(versionEntity.getPriceCryptocurrency());*/
 		purchaseEntity.setPurchaseId(CoreUtils.generateId());
 		purchaseRepository.save(purchaseEntity);
 		

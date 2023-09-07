@@ -28,7 +28,7 @@ public class CoreUtils {
 	public static ResponseVO responseSuccess(Object data) {
 		ResponseVO response = new ResponseVO();
 		// response.setHttpStatus(HttpStatus.OK);
-		// response.setStatus(HttpStatus.OK.value());
+		response.setStatus(HttpStatus.OK.value());
 		response.setData(data);
 		return response;		
 	}

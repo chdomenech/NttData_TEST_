@@ -10,8 +10,8 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import com.nttdata.costconversion.application.input.CarInfoVO;
 import com.nttdata.costconversion.application.input.CryptoInfoVO;
-import com.nttdata.costconversion.application.input.InputVO;
 import com.nttdata.costconversion.application.input.ModelsVO;
+import com.nttdata.costconversion.application.input.conversion.InputConversionVO;
 import com.nttdata.costconversion.application.output.ConvertionOutputVO;
 import com.nttdata.costconversion.domain.model.ConversionEntity;
 import com.nttdata.costconversion.domain.model.VersionsEntity;
@@ -45,7 +45,7 @@ public class ConversionServiceImplementation implements ConversionService {
 	private VersionRepository versionRepository;
 
 	@Override
-	public ConvertionOutputVO createConversion(InputVO data) throws Exception {
+	public ConvertionOutputVO createConversion(InputConversionVO data) throws Exception {
 		ConvertionOutputVO convertion = null;
 		List<ModelsVO> models = new ArrayList<>();
 		List<VersionsEntity> versions = new ArrayList<>();

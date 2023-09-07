@@ -6,13 +6,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nttdata.costconversion.application.input.InputVO;
+import com.nttdata.costconversion.application.input.report.InputReportVO;
 import com.nttdata.costconversion.application.output.ResponseVO;
 import com.nttdata.costconversion.domain.service.ReportService;
 import com.nttdata.costconversion.infrastructure.adapter.util.CoreUtils;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import reactor.core.publisher.Mono;
 
+@Tag(name = "Report", description = "The report Api")
 @RestController
 @RequestMapping("/api/report")
 public class ReportController {
@@ -24,8 +29,14 @@ public class ReportController {
         this.reportService = reportService;
     }
 
+    @Operation(
+            summary = "Create a report",
+            description = "Create a report")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "successful operation")
+    })
     @PostMapping("generate")
-    public Mono<ResponseVO> generate(@RequestBody InputVO data) {
+    public Mono<ResponseVO> generate(@RequestBody InputReportVO data) {
     	  try {		
   			return Mono.justOrEmpty(CoreUtils.responseSuccess(reportService.generateReport(data)));		
   		}catch(Exception e) {
